@@ -19,6 +19,16 @@ export default function Home() {
               Covert to Base64 <IconSlash height={18} />
             </button>
           </Link>
+          <Link href={"/reverse-string"}>
+            <button className="bg-primaryBg px-4 p-1 mt-2 text-secondaryText rounded-md border border-[#282729] flex flex-row items-center hover:opacity-80 transition-all">
+              Reverse String <IconSlash height={18} />
+            </button>
+          </Link>
+          <Link href={"/remove-whitespace"}>
+            <button className="bg-primaryBg px-4 p-1 mt-2 text-secondaryText rounded-md border border-[#282729] flex flex-row items-center hover:opacity-80 transition-all">
+              Remove Whitespace <IconSlash height={18} />
+            </button>
+          </Link>
         </div>
       </div>
     </>

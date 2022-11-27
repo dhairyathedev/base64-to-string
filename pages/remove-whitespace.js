@@ -4,19 +4,19 @@ import Nav from "../components/Nav";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import ConvertedOutput from "../components/convertedOutput";
-export default function StrToBase64() {
+export default function RemoveWhiteSpace() {
   const [text, setText] = useState("");
   const [result, setResult] = useState("");
   async function stringToBase64() {
     if(!text){
         toast.error("Please enter the text!")
     }else{
-    const res = await axios.post("/api/conversions/stringtobase", {
+    const res = await axios.post("/api/conversions/remove-whitespace", {
       str: text,
     });
     console.log(res);
     setResult(res.data);
-    toast.success("String Encoded!");
+    toast.success("Whitespace removed!");
 }
   }
   return (
@@ -26,13 +26,13 @@ export default function StrToBase64() {
         <Nav />
         <div className="mt-36">
           <div className={`${result.length > 0 ? "hidden" : "block"}`}>
-          <p className="text-center mb-2 text-secondaryText font-JetMono uppercase text-sm">
-            Encode Base64 String
-          </p>
-          <div className="flex items-center justify-center">
-            <input
-              type="text"
-              className="
+            <p className="text-center mb-2 text-secondaryText font-JetMono uppercase text-sm">
+                Remove Whitespace from a string
+            </p>
+            <div className="flex items-center justify-center">
+              <input
+                type="text"
+                className="
                       mt-1
                       block
                       w-full
@@ -47,21 +47,21 @@ export default function StrToBase64() {
                       text-center
                       tracking-wider
                     "
-              value={text}
-              placeholder="Enter String"
-              onChange={(e) => setText(e.target.value)}
-              autoFocus={true}
-            />
-          </div>
-          <button
-            className="bg-primaryBg px-4 p-1 mt-2 text-secondaryText rounded-md border border-[#282729] flex flex-row items-center hover:opacity-80 transition-all"
-            onClick={stringToBase64}
-          >
-            Convert <IconCommand height={18} />
-          </button>
+                value={text}
+                placeholder="Enter String"
+                onChange={(e) => setText(e.target.value)}
+                autoFocus={true}
+              />
+            </div>
+            <button
+              className="bg-primaryBg px-4 p-1 mt-2 text-secondaryText rounded-md border border-[#282729] flex flex-row items-center hover:opacity-80 transition-all"
+              onClick={stringToBase64}
+            >
+              Convert <IconCommand height={18} />
+            </button>
           </div>
           <ConvertedOutput
-            title={"Encoded Base64 String"}
+            title={"Result"}
             convertedStr={result}
             visible={result.length > 0}
           />

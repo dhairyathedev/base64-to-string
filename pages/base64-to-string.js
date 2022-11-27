@@ -8,12 +8,16 @@ export default function Base64ToStr() {
   const [text, setText] = useState("");
   const [decodedStr, setDecodedStr] = useState("");
   async function base64ToString() {
+    if(!text){
+      toast.error("Please enter the text!")
+  }else{
     const res = await axios.post("/api/conversions/basetostring", {
       str: text,
     });
     console.log(res);
     setDecodedStr(res.data);
     toast.success("String Decoded!");
+  }
   }
   return (
     <>
