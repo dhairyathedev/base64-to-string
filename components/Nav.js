@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import BlurImage from './utils/BlurImage'
 export default function Nav() {
   return (
     <>
+      <Link href="/">
       <div className="flex flex-row items-center space-x-3 select-none">
         <BlurImage
           src="/assets/logo.svg"
@@ -16,7 +18,7 @@ export default function Nav() {
           Base64ToString
         </h1>
       </div>
-      ;
+      </Link>
     </>
   );
 }

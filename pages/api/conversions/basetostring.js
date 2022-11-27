@@ -1,4 +1,4 @@
-import { base64ToString } from "../../lib/conversions";
+import { base64ToString } from "../../../lib/conversions";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
